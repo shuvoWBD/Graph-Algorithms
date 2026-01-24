@@ -155,3 +155,68 @@ Dijkstra’s Algorithm is a graph algorithm used to find the shortest path from 
 **Time Complexity**
 
  O((V+E)*logV), Where E is the number of edges and V is the number of vertices.
+
+
+
+ **Euler Circuit Algorithm**
+ ----------------------------------------------------------------
+ An Euler Circuit Algorithm is used to determine and construct a path in a graph that starts and ends at the same vertex while visiting every edge exactly once.
+
+
+ **Key Conditions**
+
+    * The graph must be connected.
+
+    * Every vertex must have an even degree.
+
+
+**Steps**
+
+   1. Create the graph using an adjacency list and maintain an array to store the in-degree of each vertex.
+
+   2. Check strong connectivity:
+
+          * Perform DFS on the original graph starting from a vertex with non-zero degree.
+
+          * Perform DFS on the transpose (reversed) graph.
+
+          * If all vertices with edges are visited in both cases, the graph is strongly connected.
+
+   3. Check degree condition:
+
+          * For every vertex, verify that its in-degree is equal to its out-degree.
+
+   4. Decide Eulerian cycle:
+
+          * If the graph is strongly connected and every vertex has equal in-degree and out-degree, then the graph has an Euler circuit.
+
+          * Otherwise, it does not have an Euler circuit.
+
+   5. Output the result based on the checks.
+
+
+**Time complexity**
+
+   O(V + E)
+
+
+
+**Johnson’s Algorithm**
+-------------------------------------------------------------
+Johnson’s Algorithm is a graph algorithm used to find the shortest paths between all pairs of vertices in a weighted, directed graph that may contain negative edge weights, but no negative weight cycles.
+
+
+**Steps**
+
+  1. et the given graph be G. Add a new vertex s to the graph, add edges from the new vertex to all vertices of G. Let the modified graph be G'.
+
+  2. Run the Bellman-Ford algorithm on G' with s as the source. Let the distances calculated by Bellman-Ford be h[0], h[1], .. h[V-1]. If we find a negative           weight cycle, then return. Note that the negative weight cycle cannot be created by new vertex s as there is no edge to s. All edges are from s.
+
+  3. Reweight the edges of the original graph. For each edge (u, v), assign the new weight as "original weight + h[u] - h[v]".
+
+  4. Remove the added vertex s and run Dijkstra's algorithm for every vertex.
+
+
+**Time Complexity**
+
+  O(V2log V + VE). 
