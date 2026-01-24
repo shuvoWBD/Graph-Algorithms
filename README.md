@@ -220,3 +220,46 @@ Johnson’s Algorithm is a graph algorithm used to find the shortest paths betwe
 **Time Complexity**
 
   O(V2log V + VE). 
+
+
+
+**Bridge Finding Algorithm**
+--------------------------------------------------------------------------
+A Bridge Finding Algorithm is used to identify bridges in a graph.
+
+
+**Steps**
+
+   1. **Initialization:**
+
+          * Mark all vertices as unvisited.
+
+          * Create arrays: disc[] (discovery time), low[] (lowest reachable ancestor), and parent[].
+
+   2. **Depth-First Search (DFS):**
+
+          * Start DFS from any unvisited vertex.
+
+          * For each adjacent vertex v of u:
+
+                     * If v is unvisited, recursively DFS on v.
+
+                     * Update low[u] = min(low[u], low[v]).
+
+  3. **Bridge Detection:**
+
+         * fter visiting v, if low[v] > disc[u], edge (u, v) is a bridge.
+
+  4. **Back Edge Handling:**
+
+        * If v is visited and not the parent of u, update low[u] = min(low[u], disc[v]).
+    
+  5. **Repeat:**
+        * Continue DFS until all vertices are visited.
+    
+        * All edges satisfying the bridge condition are reported.
+
+
+  **Time Complexity**
+
+     O(V+E)
