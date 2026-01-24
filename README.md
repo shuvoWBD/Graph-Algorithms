@@ -263,3 +263,59 @@ A Bridge Finding Algorithm is used to identify bridges in a graph.
   **Time Complexity**
 
      O(V+E)
+
+
+
+**Reverse Delete Algorithm**
+---------------------------------------------------
+he Reverse Delete Algorithm is a graph algorithm used to find a Minimum Spanning Tree (MST) of a connected, weighted, undirected graph.
+
+
+**Steps**
+
+   1. Sort all edges of the graph in decreasing order of weight.
+
+   2. Start with the full graph containing all edges.
+
+   3. Pick the edge with the highest weight.
+
+   4. Remove this edge if the graph remains connected.
+
+   5. If removing the edge disconnects the graph, keep it.
+
+    6. Repeat until no more edges can be removed.
+
+    7. The remaining edges form the Minimum Spanning Tree.
+
+
+  **Time complexity**
+
+    O((E*(V+E)) + E log E) where E is the number of edges.
+
+
+
+**Shortest Path Faster Algorithm**
+-----------------------------------------------------
+The Shortest Path Faster Algorithm (SPFA) is an improved version of the Bellman–Ford Algorithm used to find the shortest paths from a single source to all other vertices in a weighted graph, even when negative edge weights are present.
+
+
+**Steps**
+
+   1. Create an array d[] to store the shortest distance of all vertex from the source vertex. Initialize this array by infinity except for d[S] = 0 where S is          the source vertex.
+
+   2. Create a queue Q and push starting source vertex in it.
+
+          * while Queue is not empty, do the following for each edge(u, v) in the graph.
+
+                          * If d[v] > d[u] + weight of edge(u, v).
+
+                           * d[v] = d[u] + weight of edge(u, v).
+
+                            * If vertex v is not present in Queue, then push the vertex v into the Queue.
+
+
+**Time Complexity**
+
+     * **Average Time Complexity:** O(|E|) 
+
+     * **Worstcase Time Complexity:** O(|V|.|E|) 
