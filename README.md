@@ -120,4 +120,38 @@ A minimum spanning tree (MST) or minimum weight spanning tree for a weighted, co
 
 
 
+**Dijkstra's Algorithm**
+-----------------------------------------------
+Dijkstra’s Algorithm is a graph algorithm used to find the shortest path from a single source vertex to all other vertices in a weighted graph with non-negative edge weights. It works by repeatedly selecting the unvisited vertex with the smallest known distance, updating the distances of its neighboring vertices, and marking the vertex as visited. This process continues until the shortest distances to all vertices are determined.
 
+
+**Steps**
+
+  1. Represent the graph as an adjacency list with weights on edges.
+
+  2. Initialize a distance array where the distance to all vertices is set to infinity.
+
+ 3. Set the distance of the source vertex to 0.
+
+ 4. Insert the source vertex into a priority queue (min-heap).
+
+5. While the priority queue is not empty:
+
+     * Remove the vertex with the minimum distance.
+
+     * If the extracted distance is greater than the stored distance, skip it.
+
+     * For each neighboring vertex:
+
+           * Calculate the new distance through the current vertex.
+
+           * If the new distance is smaller, update the distance and push it into the queue.
+
+6. Repeat until all reachable vertices are processed.
+
+7. The distance array now contains the shortest distances from the source to all vertices.
+
+
+**Time Complexity**
+
+ O((V+E)*logV), Where E is the number of edges and V is the number of vertices.
