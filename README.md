@@ -361,8 +361,44 @@ Iterative Deepening Search (IDS) is a graph and tree search algorithm that combi
 
                       * The depth limit reaches max_depth → stop searching.
 
-5. Final Decision:
+
+
+**Floyd Warshall Algorithm**
+--------------------------------------------------
+The Floyd–Warshall Algorithm is used to find the shortest paths between all pairs of vertices in a weighted graph.
+
+It works for:
+
+     * Directed or undirected graphs.
+
+     * Graphs with negative edge weights.
+
+     * But no negative weight cycles.
+
+
+**Steps**
+
+    1. Start by updating the distance matrix by treating each vertex as a possible intermediate node between all pairs of vertices.
+
+    2. Iterate through each vertex, one at a time. For each selected vertex k, attempt to improve the shortest paths that pass through it.
+
+    3. When we pick vertex number k as an intermediate vertex, we already have considered vertices {0, 1, 2, .. k-1} as intermediate vertices. 
+
+    4. For every pair (i, j) of the source and destination vertices respectively, there are two possible cases.
+
+                 * k is not an intermediate vertex in shortest path from i to j. We keep the value of dist[i][j] as it is. 
+
+                 * k is an intermediate vertex in shortest path from i to j. We update the value of dist[i][j] as dist[i][k] + dist[k][j], if dist[i][j] > dist[i]                      [k] + dist[k][j].
+
+    5. Repeat this process for each vertex k until all intermediate possibilities have been considered.
+
+6. Final Decision:
 
         * If the target is found at any depth ≤ max_depth, IDDFS returns true.
 
         * If the target is not found after all depth levels, IDDFS returns false.
+
+
+**Time Complexity**
+
+   O(V3), where V is the number of vertices in the graph and we run three nested loops each of size V.
