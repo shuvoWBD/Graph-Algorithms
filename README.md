@@ -402,3 +402,42 @@ It works for:
 **Time Complexity**
 
    O(V3), where V is the number of vertices in the graph and we run three nested loops each of size V.
+
+
+
+**Bellman–Ford Algorithm**
+------------------------------------------
+The Bellman–Ford Algorithm is used to find the shortest path from a single source vertex to all other vertices in a weighted graph.
+
+It can handle negative edge weights and can also detect negative weight cycles.
+
+
+**Steps**
+
+   1. **Initialization**
+
+           * Set distance of the source vertex to 0.
+
+           * Set distance of all other vertices to ∞.
+
+2. **Relax All Edges (V − 1 Times)**
+
+           * Repeat the following process V − 1 times:
+
+           * For every edge (u, v) with weight w:
+
+                   * If
+                      dist[u] + w < dist[v]
+
+                    * Then update
+                       dist[v] = dist[u] + w
+
+3. Check for Negative Weight Cycle
+
+           * Go through all edges one more time.
+
+           * If any distance can still be reduced, then:
+
+                                  * A negative weight cycle exists
+
+                                  * Shortest path is not defined
