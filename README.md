@@ -481,3 +481,66 @@ In DLS, if the goal node is found within the depth limit, the search succeeds. I
          * If the target is found in any path within the depth limit, return True
 
          * Otherwise, return False
+
+
+
+**Bidirectional Search Algorithm**
+------------------------------------------------------
+Bidirectional Search Algorithm is a graph search technique that runs two searches at the same time:
+
+               * One search starts from the source node.
+
+               * The other search starts from the goal node.
+
+
+**Steps**
+
+   1. **Initialize the Graph**
+
+               * Represent the graph using an adjacency list.
+
+               * Prepare two queues: one for forward search (from source) and one for backward search (from destination).
+
+               * Maintain two visited arrays and two parent arrays for source side and destination side.
+
+2. **Start from Both Ends**
+
+               * Insert the source node into the source queue and mark it as visited.
+
+               * Insert the destination node into the destination queue and mark it as visited.
+
+3. **Perform Forward BFS**
+
+               * Remove a node from the source queue.
+
+               * Visit all its unvisited adjacent nodes.
+
+               * Mark them visited, store their parent, and add them to the source queue.
+
+4. **Perform Backward BFS**
+
+               * Remove a node from the destination queue.
+
+               * Visit all its unvisited adjacent nodes.
+
+               * Mark them visited, store their parent, and add them to the destination queue.
+
+5. **Check for Intersection**
+
+                * After each forward and backward BFS step, check if any node has been visited by both searches.
+
+                * If such a node exists, it is the meeting point.
+
+6. **Construct the Path**
+
+                * Trace back from the intersection node to the source using the source parent array.
+
+                * Trace forward from the intersection node to the destination using the destination parent array.
+
+                 * Combine both parts to get the full path.
+
+7. **Terminate Search**
+
+                 * If an intersection is found, print the path and stop.
+
+                 * If both queues become empty and no intersection is found, conclude that no path exists.
