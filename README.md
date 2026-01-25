@@ -319,3 +319,50 @@ The Shortest Path Faster Algorithm (SPFA) is an improved version of the Bellman�
      * **Average Time Complexity:** O(|E|) 
 
      * **Worstcase Time Complexity:** O(|V|.|E|) 
+
+
+
+**Iterative Deepening Search**
+-------------------------------------------------------
+Iterative Deepening Search (IDS) is a graph and tree search algorithm that combines the space efficiency of DFS with the completeness of BFS. It works by repeatedly applying Depth-Limited Search (DLS) with increasing depth limits until the goal is found.
+
+
+**Steps**
+
+  1. Start IDDFS:
+
+          * The algorithm begins with depth limit = 0
+
+          * It calls Depth-Limited Search (DLS) using this limit.
+
+2. Call DLS:
+
+        * if src == target, the search is successful and returns true.
+
+        * If the depth limit becomes 0, the search stops and returns false.
+
+        * Otherwise, the algorithm explores all adjacent nodes of src.
+
+        * For each adjacent node, DLS is called again with limit - 1.
+
+3. Increase Depth Limit:
+
+        * If the target is not found at the current depth.
+
+        * IDDFS increases the depth limit by 1.
+
+        * DLS is called again from the source node.
+
+4. Repeat the Process:
+
+        * This process continues until:
+
+                      * The target is found → return true.
+
+                      * The depth limit reaches max_depth → stop searching.
+
+5. Final Decision:
+
+        * If the target is found at any depth ≤ max_depth, IDDFS returns true.
+
+        * If the target is not found after all depth levels, IDDFS returns false.
