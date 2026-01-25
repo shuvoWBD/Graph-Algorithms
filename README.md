@@ -441,3 +441,43 @@ It can handle negative edge weights and can also detect negative weight cycles.
                                   * A negative weight cycle exists
 
                                   * Shortest path is not defined
+
+
+
+
+**Depth Limited Search Algorithm**
+-------------------------------------------------------
+Depth Limited Search (DLS) is a graph or tree search algorithm that works like Depth First Search, but with a fixed depth limit.
+
+In DLS, if the goal node is found within the depth limit, the search succeeds. If the limit is reached before finding the goal, the search stops and reports failure or cutoff.
+
+
+**Steps**
+
+  1. **Start from Source Node**
+
+             * Begin the search from the given source node.
+
+             * Set the current depth to 0.
+
+2. **Check Goal**
+
+            * If the current node is the target, return True.
+
+3. **Check Depth Limit**
+
+           * If the current depth equals the depth limit, stop searching this path.
+
+           * Return False.
+
+4. **Expand Children**
+
+          * Recursively apply DLS to each unvisited adjacent node.
+
+          * Increase depth by 1 for each recursive call.
+
+5. **Result**
+
+         * If the target is found in any path within the depth limit, return True
+
+         * Otherwise, return False
